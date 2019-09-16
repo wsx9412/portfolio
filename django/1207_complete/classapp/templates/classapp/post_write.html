@@ -1,0 +1,17 @@
+{% extends "classapp/base_post.html" %}
+
+{% block content %}
+<form action="{% url 'classapp:post_write' board_num %}" method='post'>
+{% csrf_token %}
+
+<p>제목:<br>{{ postForm.title }}</p>
+<br>
+<p>내용:<br>
+{{postForm.content}}
+</p>
+<br>
+
+<p><input type="submit" value="게시글작성"></p>
+</form>
+
+{% endblock content %}

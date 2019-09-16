@@ -1,0 +1,20 @@
+{% extends 'classapp/base.html' %}
+
+{% block content %}
+<div class=board>
+<table class="table">
+    <thread>
+    <tr>
+        <th>게시판</th>
+    </tr>
+    </thread>
+    <tbody>
+    {% for board in object_list %}
+    <tr>
+        <td><a href="{% url 'classapp:post_list' board.id %}">{{ board.board_name }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock content %}

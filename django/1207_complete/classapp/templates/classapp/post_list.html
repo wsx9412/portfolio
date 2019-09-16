@@ -1,0 +1,36 @@
+{% extends "classapp/base_board.html" %}
+
+{% block content %}
+<div class=board>
+<table class="table">
+    <thread>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+    </tr>
+    </thread>
+    <tbody>
+    {% for post in object_list %}
+    <tr>
+        <td>{{post.id}}</td>
+        <td><a href="{% url 'classapp:post_view' board_num post.id %}">{{ post.title }}</a></td>
+        <td>
+            {% if post.writer_s != None %}
+                {{ post.writer_s }}
+            {% else %}
+                {{ post.writer_p }}
+            {% endif %}
+        </td>
+        <td>{{ post.pub_date.year }}.{{ post.pub_date.month }}.{{ post.pub_date.day }}</td>
+        <td>{{ post.view_count }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+<br>
+<a href="{% url 'classapp:post_write' board_num %}">게시글 작성하기</a>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+    <form action="{% url 'classapp:group_assign' %}" method='post'>
+        {% csrf_token %}
+        배정할 그룹을 선택해 주세요<br>
+        {{form.select_group}}<br><br>
+        배정할 맴버을 선택해 주세요<br>
+        {{form.select_member}}<br><br>
+        <button type="submit" style="width:300px; height:30px; background-color:#d18173cb; border: none; color: white;">배정하기</button>
+    </form>
+</div>
+{% endblock %}

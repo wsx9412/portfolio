@@ -1,0 +1,11 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+        <form action="{% url 'classapp:register_select' %}" method='POST'> 
+            {% csrf_token %}
+
+            {{form}}
+            <button type="submit">확인</button>
+            </form>
+</div>
+{% endblock %}

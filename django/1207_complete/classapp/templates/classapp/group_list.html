@@ -1,0 +1,36 @@
+{% extends "classapp/base.html" %}
+
+{% block content %}
+<div class=board>
+<h2>
+    {% if request.session.user_type == 0 %}
+    내 그룹 목록
+    {% else %}
+    그룹 관리
+    {% endif %}
+</h2>
+<table class="table">
+        <thread>
+        <tr>
+            <th>번호</th>
+            <th>그룹이름</th>
+            <th>인원수</th>
+        </tr>
+        </thread>
+        <tbody>
+        {% for item in member_count_list %}
+        <tr>
+            <td>{{ item.0.id }}</td>
+            <td>{{ item.0.group_name }}</td>
+            <td>{{ item.1 }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+</table>
+</div>
+<br>
+{% if request.session.user_type == 2 %}
+<a href="{% url 'classapp:group_create' %}">그룹 생성</a>
+<a href="{% url 'classapp:group_assign' %}">그룹 배정</a>
+{% endif %}
+{% endblock content %}

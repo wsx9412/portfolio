@@ -1,0 +1,13 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="board-form">
+    <form action="{% url 'classapp:board_create' %}" method='post'>
+        {% csrf_token %}
+        게시판이름<br>
+        {{form.board_name}}<br>
+        그룹id<br>
+        {{form.group_id}}<br><br>
+        <input type="submit" name ="delete" value="확인" >
+    </form>
+</div>
+{% endblock %}

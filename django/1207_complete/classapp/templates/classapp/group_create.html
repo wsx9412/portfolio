@@ -1,0 +1,13 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+    <form action="{% url 'classapp:group_create' %}" method='post'>
+        {% csrf_token %}
+        그룹 생성<br><br>
+        생성할 그룹 이름<br><br>
+        {{form.name_input}}<br><br>
+        <button type="submit" style="width:300px; height:30px; background-color:#d18173cb; border: none; color: white;">생성하기</button>
+    </form>
+</div>
+{% endblock %}
+        

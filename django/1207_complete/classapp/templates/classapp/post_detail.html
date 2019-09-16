@@ -1,0 +1,56 @@
+{% extends "classapp/base_post.html" %}
+
+{% block content %}
+
+<p><h3>제목: {{ postInfo.title }}</h1></p>
+<li>작성자:
+{% if postInfo.writer_s != None %}
+{{ postInfo.writer_s }}
+{% else %}
+{{ postInfo.writer_p }}
+{% endif %}
+</li>
+<li>작성일: {{ postInfo.pub_date }}</li>
+<li>조회수: {{ postInfo.view_count }}</li>
+<br>
+<p>{{ postInfo.contents }}</p>
+<form action="{% url 'classapp:post_edit' board_num postInfo.id  %}" method = 'get'>
+        {% csrf_token %}
+        <p><input type="submit" name = "post_delete" value="게시글 수정"></p>
+</form>
+<form action="{% url 'classapp:post_delete' board_num postInfo.id  %}" method = 'post'>
+        {% csrf_token %}
+        <p><input type="submit" name = "post_delete" value="게시글 삭제"></p>
+</form>
+<p>===================================</p>
+<h5>Comment:</h3>
+{% for comment in commentList %}
+    <table>
+        <tr>
+            <td>
+                {% if comment.writer_s != None %}
+                    {{ comment.writer_s }}
+                {% else %}
+                    {{ comment.writer_p }}
+                {% endif %}
+                : 
+                {{ comment.comment }}        
+            </td>
+            <td>
+                <form action="{% url 'classapp:comment_delete' board_num postInfo.id comment.id %}" method='post'>
+                    {% csrf_token %}
+                    <input type="submit" name ="comment_delete" value="삭제" >
+                </form>
+            </td>
+        </tr>
+    </table>
+{% endfor %}
+<br>
+<form action="{% url 'classapp:post_view' board_num postInfo.id %}" method='post'>
+    {% csrf_token %}
+    {{commentForm.comment_input}}
+            
+    <p><input type="submit" value="댓글작성"></p>
+</form>
+
+{% endblock content %}

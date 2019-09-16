@@ -1,0 +1,48 @@
+{% extends "classapp/base.html" %}
+
+{% block content %}
+<div class=board>
+<h2>채팅방 목록</h2>
+<table class="table">
+        <thread>
+        <tr>
+            <th>번호</th>
+            <th>방이름</th>
+            <th>관리자</th>
+            <th>비밀방</th>
+        </tr>
+        </thread>
+        <tbody>
+        {% for chatroom in object_list %}
+        <tr>
+            {% if chatroom.secret %}
+            <td bgcolor=#601010>{{chatroom.id}}</td>
+            <td bgcolor=#601010><a href="{% url 'classapp:chat_room' chatroom.id %}">{{ chatroom.name }}</a></td>
+            <td bgcolor=#601010>
+                {% if chatroom.manager_p != None %}
+                    {{ chatroom.manager_p }}
+                {% elif chatroom.manager_s != None%}
+                    {{ chatroom.manager_s }}
+                {% endif %}
+            </td>
+            <td bgcolor=#601010>{{ chatroom.secret }}</td>
+            {% else %}
+            <td >{{chatroom.id}}</td>
+            <td ><a href="{% url 'classapp:chat_room' chatroom.id %}">{{ chatroom.name }}</a></td>
+            <td >
+                {% if chatroom.manager_p != None %}
+                    {{ chatroom.manager_p }}
+                {% elif chatroom.manager_s != None%}
+                    {{ chatroom.manager_s }}
+                {% endif %}
+            </td>
+            <td>{{ chatroom.secret }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+        </tbody>
+</table>
+</div>
+<br>
+<a href="{% url 'classapp:chat_create' %}">채팅방 생성</a>
+{% endblock content %}

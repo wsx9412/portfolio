@@ -1,0 +1,14 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+    <form action="{% url 'classapp:login' %}" method='post'>
+        {% csrf_token %}
+        아이디<br>
+        {{form.user_id}}<br>
+        비밀번호<br>
+        {{form.user_pw}}<br><br>
+
+        <button type="submit">로그인</button>
+    </form>
+</div>
+{% endblock %}

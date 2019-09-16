@@ -1,0 +1,13 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+    {% if link %}
+    <form action="{{link}}" method='get'>
+    {% else %}
+    <form action="{% url 'classapp:home' %}" method='get'>
+    {% endif %}
+        {{msg}}<br><br>
+        <button>확인</button>
+    </form>
+</div>
+{% endblock %}

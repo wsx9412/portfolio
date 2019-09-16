@@ -1,0 +1,30 @@
+{% extends 'classapp/base.html' %}
+{% block content %}
+<div class="login-form">
+        학생 회원 가입
+        <br>
+        <br>
+        <form action="{% url 'classapp:register_s' %}" method='POST'> 
+            {% csrf_token %}
+
+            {{ form.email_input.label}}
+            <br>
+            {{ form.email_input}}
+            <br>
+            <br>
+        
+            {{ form.pass_input.label}}
+            <br>
+            {{ form.pass_input }}
+            <br>
+            <br>
+        
+            {{ form.number_input.label}}
+            <br>
+            {{ form.number_input}}
+            <br>
+            <br>
+            <button type="submit">가입하기</button>
+            </form>
+</div>
+{% endblock %}
