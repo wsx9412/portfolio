@@ -1,6 +1,16 @@
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql');
+
+let client = mysql.createConnection({
+  user:"root",
+  password:"9412"
+  database:"TAXI"
+})
+module.exports = router;
 
 var app = http.createServer(function(request,response){
     var _url = request.url;

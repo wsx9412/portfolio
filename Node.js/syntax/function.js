@@ -10,5 +10,5 @@ function abc(a,b){
 
 function sum(first, second){
   console.log(second);
-  fs.writeFile('./result.txt',Math.round(1.6),function(err,write));
+  /*fs.writeFile('./result.txt',Math.round(1.6),function(err,write));*/
 }
