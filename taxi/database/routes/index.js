@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
+var app = express();
 //암호화
 /* GET home page. */
 let client = mysql.createConnection({
@@ -26,28 +27,6 @@ function getDist(lat1,long1,lat2,long2){
 }
 
 //통신 area
-router.get('/create', function(req, res, next) {
-  client.query("SELECT * FROM member;", function(err, result, fields){
-    if(err){
-      console.log(err);
-      console.log("쿼리문에 오류가 있습니다.");
-    }
-    else{
-      res.render('create', {
-        results: result
-      });
-    }
-  });
-});
-
-router.post('/create', function(req, res, next) {
-  var body = req.body;
-  client.query("INSERT INTO mem (id, name, age) VALUES (?, ?, ?)", [
-    body.id, body.name, body.age
-  ], function(){
-    res.redirect("/create");
-  });
-});
 
 router.post('/post',function(req,res,next){
   var body = req.body;
@@ -62,18 +41,45 @@ router.post('/post',function(req,res,next){
       else if(result[0]){
         console.log(result);
         bcrypt.compare(body.password, result[0].mem_password, function(err, res2) {
-                    if (res2) {
-                      res.write(result[0].mem_code);
-                      res.end();
-                      console.log(result[0]);
-                    }
-                    else {
-                      res.write("2");
-                      res.end();
-                    }
-                });
+          if (res2) {
+            if(result[0].isLogin == 1){
+              res.write("3");
+              res.end();
+            }
+            else{
+              client.query("update mem set isLogin = true where mem_id = ?",[body.id],function(err,err2){
+                if(err){
+                  console.log(err);
+                  res.write("2");//통신 실패
+                  res.end();
+                }
+                else{
+                  res.write(result[0].mem_code);
+                  res.end();
+                }
+              });
+            }
+          }
+          else {
+            res.write("2");
+            res.end();
+          }
+        });
       }else{
         res.write("2");
+        res.end();
+      }
+    });
+  }
+  else if(body.type == "logout"){
+    client.query("update mem set isLogin = false where mem_id = ?",[body.id],function(err){
+      if(err){
+        console.log(err);
+        res.write("0");//통신 실패
+        res.end();
+      }
+      else{
+        res.write("1");//통신 성공
         res.end();
       }
     });
@@ -87,7 +93,7 @@ router.post('/post',function(req,res,next){
         res.end();
       }
       else{
-        client.query("insert into mem(mem_id,mem_password,mem_name,mem_code,mem_phonenumber) values (?,?,?,?,?)",
+        client.query("insert into mem(mem_id,mem_password,mem_name,mem_code,mem_phonenumber,isLogin) values (?,?,?,?,?,false)",
         [body.id,hash,body.name,body.mem_code,body.phone_number]
         , function(err,result,fields){
           if(err){
@@ -95,11 +101,15 @@ router.post('/post',function(req,res,next){
             res.write("0");//통신 실패
             res.end();
           }
-          if(body.mem_code == "0"){
+          else if(body.mem_code == "0"){
             client.query("insert into driver(driver_id,isDrive,customer_on) values(?,false,false)",[body.id], function(err,result2){
               if(err){
                 console.log(err);
                 res.write("0");//통신 실패
+                res.end();
+              }
+              else{
+                res.write("1");//통신 성공
                 res.end();
               }
             });
@@ -111,10 +121,12 @@ router.post('/post',function(req,res,next){
                 res.write("0");//통신 실패
                 res.end();
               }
+              else{
+                res.write("1");//통신 성공
+                res.end();
+              }
             });
           }
-          res.write("1");//통신 성공
-          res.end();
         });
       }
     });
@@ -126,8 +138,10 @@ router.post('/post',function(req,res,next){
         res.write("0");//통신 실패
         res.end();
       }
-      res.write("1");//통신 실패
-      res.end();
+      else{
+        res.write("1");//통신 실패
+        res.end();
+      }
     });
   }
   else if(body.type == "isDrive_false"){
@@ -137,8 +151,10 @@ router.post('/post',function(req,res,next){
         res.write("0");//통신 실패
         res.end();
       }
-      res.write("1");//통신 실패
-      res.end();
+      else{
+        res.write("1");//통신 실패
+        res.end();
+      }
 
     });
   }
@@ -161,8 +177,10 @@ router.post('/location',function(req,res,next){
         res.write("0");
         res.end();
       }
-      res.write("1");
-      res.end();
+      else{
+        res.write("1");
+        res.end();
+      }
     });
   }
   else if(body.type == "get_information"){//좌표획득
@@ -190,7 +208,7 @@ router.post('/location',function(req,res,next){
               res.end();
             }
             else if(result2[0]){
-              var location = "id :" + result2[0].customer_id + "  longitude : "+result2[0].longitude+" latitude : "+  result2[0].latitude + " destination_longitude : " +   result2[0].destination_longitude + " destination_latitude  : " + result2[0].destination_latitude;
+              var location = "id : " + result2[0].customer_id + " longitude : "+result2[0].longitude+" latitude : "+  result2[0].latitude + " destination_longitude : " +   result2[0].destination_longitude + " destination_latitude : " + result2[0].destination_latitude;
               console.log(location);
               res.write(location);
               res.end();
@@ -209,7 +227,7 @@ router.post('/location',function(req,res,next){
               res.end();
             }
             else if(result2[0]){
-              var location = "longitude : "+ result2[0].longitude+" latitude : "+ result2[0].latitude + " id  : " +result2[0].driver_id;
+              var location = "longitude : "+ result2[0].longitude+" latitude : "+ result2[0].latitude + " id : " +result2[0].driver_id;
               console.log(location);
               res.write(location);
               res.end();
@@ -235,8 +253,10 @@ router.post('/location',function(req,res,next){
         res.write("0");
         res.end();
       }
-      res.write("1");
-      res.end();
+      else{
+        res.write("1");
+        res.end();
+      }
   });
   }
 });
@@ -250,7 +270,6 @@ router.post('/matching',function(req,res,next){
   var longitude;
   var dist;
   var num;
-  console.log(body.id);
   if(body.type == "get_nearestTaxi"){
     console.log(body.id);
     longitude = parseFloat(body.longitude);
@@ -314,8 +333,10 @@ router.post('/matching',function(req,res,next){
           res.write("0");
           res.end();
         }
-        res.write("1");
-        res.end();
+        else{
+          res.write("1");
+          res.end();
+        }
       });
     });
   }
@@ -333,22 +354,50 @@ router.post('/matching',function(req,res,next){
             res.write("0");
             res.end();
           }
-          res.write("1");
-          res.end();
+          else{
+            res.write("1");
+            res.end();
+          }
         });
       }
     });
   }
-  else if(body.type == "reset"){
-    sqlquery = "update driver set customer_on = false and customer_id = null where driver_id = ?"
+  else if(body.type == "reset_driver"){
+    sqlquery = "update driver set customer_on = false, customer_id = null where driver_id = ?"
+    client.query(sqlquery,[body.id],function(err){
+      console.log("1");
+      if(err){
+        console.log(err);
+        res.write("0");
+        res.end();
+      }
+      else{
+        res.write("1");
+        res.end();
+      }
+    });
+  }
+  else if(body.type == "reset_customer"){
+    console.log("2");
+    sqlquery = "update driver set customer_on = false , customer_id = null where customer_id = ?"
     client.query(sqlquery,[body.id],function(err){
       if(err){
         console.log(err);
         res.write("0");
         res.end();
       }
-      res.write("1");
-      res.end();
+      else{
+        client.query("delete from negativeList where customer_id = ?",[body.id],function(err){
+          if(err){
+            res.write("0");
+            res.end();
+          }
+          else{
+            res.write("1");
+            res.end();
+          }
+        });
+      }
     });
   }
 });
