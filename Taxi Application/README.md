@@ -39,3 +39,10 @@ Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근�
   - 도착지 도착했을때 DB에 존재하는 기사와 승객의 매칭정보를 제거  
 
 ---
+
+> 주소
+ - Database : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/database/routes/index.js>
+ - HTTP(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/JsonTask.java>
+ - Login(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/MainActivity.java>
+ - Customer(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_map.java>
+ - Driver(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_driver.java>
