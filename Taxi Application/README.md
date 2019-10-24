@@ -13,6 +13,7 @@ Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근�
 
   - 택시 어플리케이션을 만들기 위해 node.js를 이용한 데이터베이스(mysql) 관리 시스템
 
+
 > 개발환경
 
   - 개발 툴 : MySQL, Android Studio, Atom
@@ -21,8 +22,10 @@ Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근�
   - 플랫폼 : Database server, Application
   - 사용API : bcrypt, T-map API
 
+
 > 제작기간
   - 2019.08 ~ 2019.10
+
 
 > 개발한 기능
 
