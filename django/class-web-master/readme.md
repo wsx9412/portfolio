@@ -7,7 +7,6 @@
 학생 교수 모두 회원가입및 로그인이 가능한 학과 게시판 사이트.
 학과별로 접속 가능한 게시판이 정해져있고, 게시글이나 댓글을 작성, 수정, 삭제할 수 있다.
 
-![홈](https://raw.githubusercontent.com/wsx9412/web/master/django/class-web-master/register.PNG?raw=true)
 
 ---
 
