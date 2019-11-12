@@ -1,10 +1,6 @@
 # Database and Application
 ![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi3.png?raw=true)
 
-![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi1.png?raw=true)
-
-![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi2.png?raw=true)
-
 Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근접한 택시를 호출하는 어플리케이션
 
 ---
