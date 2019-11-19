@@ -139,7 +139,7 @@ router.post('/post',function(req,res,next){
         res.end();
       }
       else{
-        res.write("1");//통신 실패
+        res.write("1");//통신 성공
         res.end();
       }
     });
