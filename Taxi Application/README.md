@@ -1,7 +1,3 @@
-.center{
-  display: block;
-  margin: auto;
-}
 # Database and Application
 ![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi.png?raw=true){: .center}
 
