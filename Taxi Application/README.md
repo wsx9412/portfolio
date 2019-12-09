@@ -1,6 +1,6 @@
 # Database and Application
 ![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi.png?raw=true)
-  
+
 Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근접한 택시를 호출하는 어플리케이션
 
 ---
@@ -8,6 +8,10 @@ Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근�
 > 졸업작품
 
   - 택시 어플리케이션을 만들기 위해 node.js를 이용한 데이터베이스(mysql) 관리 시스템  
+
+> 시연영상
+
+  - https://www.youtube.com/watch?v=xVN-XV4qxY8
 ---
 
 > 개발환경
