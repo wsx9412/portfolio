@@ -30,8 +30,6 @@
 ---
 
 > 주소
- - Database : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/database/routes/index.js>
- - HTTP(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/JsonTask.java>
- - Login(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/MainActivity.java>
- - Customer(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_map.java>
- - Driver(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_driver.java>
+ - CamActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/CamActivity.java>
+ - LogoActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/LogoActivity.java>
+ - MainActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/MainActivity.java>
