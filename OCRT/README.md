@@ -6,7 +6,7 @@
 ---  
 > 시연영상
 
-  - https://www.youtube.com/watch?v=xVN-XV4qxY8
+  - https://www.youtube.com/watch?v=Q1LuZ6PjdSc&feature=youtu.be
 ---
 
 > 개발환경
@@ -30,6 +30,6 @@
 ---
 
 > 주소
- - CamActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/CamActivity.java>
+ - CamActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/CamActivity.java> - Primary Activity
  - LogoActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/LogoActivity.java>
  - MainActivity(Android) : <https://github.com/wsx9412/portfolio/blob/master/OCRT/app/src/main/java/com/example/crt/MainActivity.java>
