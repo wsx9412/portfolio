@@ -1,5 +1,5 @@
 # Application with firebase(Android)
-![홈](https://github.com/wsx9412/web/blob/master/Taxi%20Application/picture/taxi.png?raw=true)
+![홈](https://github.com/wsx9412/portfolio/blob/master/OCRT/app/Picture/01.jpg?raw=true)
 
 이미지에서 텍스트를 추출하고 그 텍스트의 언어를 감지하여 번역하는 OCR and Translate Application
 
