@@ -1,5 +1,5 @@
 # Chat Application
-![홈](https://github.com/wsx9412/portfolio/blob/master/ChatApp/Picture/0.png)
+![홈](https://github.com/wsx9412/portfolio/blob/master/ChatApp/Picture/0.jpg)
 
 Socket 통신을 이용하여 기기간 통신을 동기화 한 채팅어플리케이션
 ---
