@@ -29,8 +29,6 @@ Socket 통신을 이용하여 기기간 통신을 동기화 한 채팅어플리�
 ---
 
 > 주소
- - Database : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/database/routes/index.js>
- - HTTP(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/JsonTask.java>
- - Login(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/MainActivity.java>
- - Customer(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_map.java>
- - Driver(Android) : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/java%20source/activity_driver.java>
+ - Server : <https://github.com/wsx9412/portfolio/blob/master/ChatApp/Source/Server/Server.java>
+ - Client(main) : <https://github.com/wsx9412/portfolio/blob/master/ChatApp/Source/Client/MainActivity.java>
+ - Client(popup) : <https://github.com/wsx9412/portfolio/blob/master/ChatApp/Source/Client/PopupActivity.java>
