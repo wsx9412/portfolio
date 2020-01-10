@@ -34,5 +34,6 @@ Java의 AWT, SWING을 이용하여 테트리스를 구현함
 
 > 주소
  - Ui : <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/Ui.java>
- - Block Class <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/Block/Block.java>  이 클래스를 상속받아 각종 블럭을 생성
- - Block Factory <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/BlockFactory.java>
+ - Block Class : <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/Block/Block.java>  
+ 이 클래스를 상속받아 각종 블럭을 생성
+ - Block Factory : <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/BlockFactory.java>
