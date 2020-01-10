@@ -1,12 +1,8 @@
-# Database and Application
+# Tetris
 ![홈](https://github.com/wsx9412/portfolio/blob/master/Tetris/picture/Tetris.png)
 
 Java의 AWT, SWING을 이용하여 테트리스를 구현함  
 
----  
-> 시연영상
-
-  - https://www.youtube.com/watch?v=xVN-XV4qxY8
 ---
 
 > 개발환경
