@@ -1,14 +1,9 @@
 # Database and Application
-![홈](https://github.com/wsx9412/portfolio/blob/master/Taxi%20Application/picture/taxi.png)
+![홈](https://github.com/wsx9412/portfolio/blob/master/Tetris/picture/Tetris.png)
 
-Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근접한 택시를 호출하는 어플리케이션
+Java의 AWT, SWING을 이용하여 테트리스를 구현함  
 
----
-
-> 졸업작품
-
-  - 택시 어플리케이션을 만들기 위해 node.js를 이용한 데이터베이스(mysql) 관리 시스템  
-
+---  
 > 시연영상
 
   - https://www.youtube.com/watch?v=xVN-XV4qxY8
@@ -42,4 +37,6 @@ Node.js를 통한 HTTP통신을 통해 DB를 조회 및 수정하여 가장 근�
 ---
 
 > 주소
- - Database : <https://github.com/wsx9412/web/blob/master/Taxi%20Application/database/routes/index.js>
+ - Ui : <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/Ui.java>
+ - Block Class <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/Block/Block.java>  이 클래스를 상속받아 각종 블럭을 생성
+ - Block Factory <https://github.com/wsx9412/portfolio/blob/master/Tetris/Tetris/src/BlockFactory.java>
